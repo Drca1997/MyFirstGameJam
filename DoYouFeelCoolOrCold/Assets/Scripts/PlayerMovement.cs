@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
         movimento.x = Input.GetAxisRaw("Horizontal");
         movimento.y = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             Debug.Log("A correr...");
             movimento.x *= run_modifier;
