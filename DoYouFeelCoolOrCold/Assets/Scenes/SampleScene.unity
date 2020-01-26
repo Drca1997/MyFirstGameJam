@@ -424,11 +424,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5532d78f4ebbb14b8fc79a4394edb46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  staminaBar: {fileID: 1571151621}
-  velocidade: 2
+  staminaBar: {fileID: 0}
+  velocidade: 3
   run_modifier: 2
+  stamina: 1
   stamina_run_modifier: 0.01
-  rb: {fileID: 695183167}
+  stamina_regeneration_ratio: 1
+  rb: {fileID: 0}
 --- !u!4 &695183166
 Transform:
   m_ObjectHideFlags: 0

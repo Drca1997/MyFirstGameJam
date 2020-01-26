@@ -13,6 +13,7 @@ public class StaminaBar : MonoBehaviour
 
     public void SetSize(float barsize)
     {
-        bar.localScale = new Vector2(barsize, 1f);
+        // Define nível de preenchimento da barra, de 0 a 1.
+        bar.localScale = new Vector2(Mathf.Clamp(barsize, 0f, 1f), 1f);
     }
 }
