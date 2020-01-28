@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private StaminaBar staminaBar;
 
+
     [SerializeField] private float velocidade = 3f;
     [SerializeField] private float run_modifier = 2f;
     [SerializeField] private float stamina = 1f;
@@ -52,6 +53,7 @@ public class PlayerMovement : MonoBehaviour
         // Se estiver a correr, vai degenerar.
         {
             staminaBar.SetSize(stamina - stamina_run_modifier);
+            
         }
         else if (stamina < 1f)
         // Se não houver delay e a stamina não estiver cheia, vai regenerar.
