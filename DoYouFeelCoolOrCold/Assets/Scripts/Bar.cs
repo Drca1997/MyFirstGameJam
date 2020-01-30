@@ -4,11 +4,22 @@ using UnityEngine;
 
 public abstract class Bar : MonoBehaviour
 {
+    public GameObject camara;
+
     protected Transform bar;
+
+    private Vector3 offset;
 
     protected void Start()
     {
         bar = transform.Find("Bar");
+        offset = transform.position - camara.transform.position;
+    }
+
+    // Update is called once per frame
+    void LateUpdate()
+    {
+        transform.position = camara.transform.position + offset;
     }
 
     public void SetSize(float barsize)
