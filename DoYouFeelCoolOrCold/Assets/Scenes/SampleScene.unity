@@ -468,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8578d21269cada4b8eed111b1df6524, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camara: {fileID: 519420028}
   health: 1
 --- !u!4 &605999884
 Transform:
@@ -957,6 +958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a5190a2649d08c46b4c3520838bd08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camara: {fileID: 519420028}
 --- !u!1 &1598489886
 GameObject:
   m_ObjectHideFlags: 0
