@@ -39,14 +39,14 @@ public class PlayerMovement : MonoBehaviour
         stamina = staminaBar.transform.Find("Bar").localScale.x;
         movimento.x = Input.GetAxisRaw("Horizontal");
         movimento.y = Input.GetAxisRaw("Vertical");
+        movimento = Vector3.ClampMagnitude(movimento, 1);
         is_running = false;
 
         if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
         // Pode correr se tiver stamina e não estiver tarrafalizado.
         {
-            is_running = (movimento.x != 0) || (movimento.y != 0);
-            movimento.x *= runModifier;
-            movimento.y *= runModifier;
+            is_running = movimento.magnitude != 0;
+            movimento *= runModifier;
         }
         else if (stamina == 0f)
         // Tarrafalizacao por esvaziar stamina.
