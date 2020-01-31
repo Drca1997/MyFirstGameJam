@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Bar : MonoBehaviour
 {
+    [Tooltip("Referência à camâra para as barras a seguirem")]
     public GameObject camara;
 
     protected Transform bar;

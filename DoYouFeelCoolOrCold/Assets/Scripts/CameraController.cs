@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    [Tooltip("Referência ao objeto Player, para a câmara o seguir")]
     public GameObject player;
 
 

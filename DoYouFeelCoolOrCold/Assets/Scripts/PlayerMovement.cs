@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Movimento")]
+    [Tooltip("Referência ao RigidBody da Personagem")]
+    public Rigidbody2D rb;
+    [Tooltip("Velocidade normal da Personagem")]
+    [SerializeField] private float velocidade = 3f;
+    [Tooltip("O quanto a velocidade da personagem aumenta a correr")]
+    [SerializeField] private float runModifier = 2f;
+
+    [Header("Stamina")]
+    [Tooltip("Referência ao objecto Barra da Stamina")]
     [SerializeField] private StaminaBar staminaBar;
 
 
-    [SerializeField] private float velocidade = 3f;
-    [SerializeField] private float run_modifier = 2f;
+    [Tooltip("Stamina da Personagem")]
     [SerializeField] private float stamina = 1f;
-    [SerializeField] private float stamina_run_modifier = 0.01f;
-    [SerializeField] private float stamina_regeneration_ratio = 1f;
+    [Tooltip("O quanto se perde stamina ao correr")]
+    [SerializeField] private float staminaRunModifier = 0.01f;
+    [Tooltip("O quão rápido se recupera stamina em relação ao quaão rápido se a perde")]
+    [SerializeField] private float staminaRegenerationRatio = 1f;
 
-    public Rigidbody2D rb;
+    
     Vector2 movimento;
     private bool is_running;
     private bool tarrafal = true;
+    private float stamina_regeneration;
 
+    private void Awake()
+    {
+        stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
+    }
     public void Update()
     {
         stamina = staminaBar.transform.Find("Bar").localScale.x;
@@ -29,8 +45,8 @@ public class PlayerMovement : MonoBehaviour
         // Pode correr se tiver stamina e não estiver tarrafalizado.
         {
             is_running = (movimento.x != 0) || (movimento.y != 0);
-            movimento.x *= run_modifier;
-            movimento.y *= run_modifier;
+            movimento.x *= runModifier;
+            movimento.y *= runModifier;
         }
         else if (stamina == 0f)
         // Tarrafalizacao por esvaziar stamina.
@@ -52,13 +68,13 @@ public class PlayerMovement : MonoBehaviour
         if (is_running)
         // Se estiver a correr, vai degenerar.
         {
-            staminaBar.SetSize(stamina - stamina_run_modifier);
+            staminaBar.SetSize(stamina - staminaRunModifier);
             
         }
         else if (stamina < 1f)
         // Se não houver delay e a stamina não estiver cheia, vai regenerar.
         {
-            staminaBar.SetSize(stamina + stamina_run_modifier / stamina_regeneration_ratio);
+            staminaBar.SetSize(stamina + stamina_regeneration);
         }
         else
         // Destarrafalizacao por ter enchido a stamina

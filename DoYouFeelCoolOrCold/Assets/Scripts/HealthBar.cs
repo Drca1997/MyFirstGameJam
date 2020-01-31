@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class HealthBar : Bar
 {
-    [SerializeField]private float health = 0.5f;
+   
+    private float health;
     private Transform red_bar;
-    private new void Start()
+    private GameObject player;
+    private new void Awake()
     {
         base.Start();
         red_bar = transform.Find("Red_Bar");
+        player = GameObject.Find("Player");
+        health = player.GetComponent<Health>().health;
         ChangeHealthBarValue(health);
     }
 
@@ -43,5 +47,9 @@ public class HealthBar : Bar
         }
     }
 
+    public float getHealth()
+    {
+        return health;
+    }
 
 }
