@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -20,6 +21,10 @@ public class Health : MonoBehaviour
     private void Update()
     {
         health = 1 - healthBar.transform.Find("Bar").localScale.x;
+        if (health <= 0f)
+        {
+            Death();
+        }
     }
 
     public void healthLoss()
@@ -30,6 +35,7 @@ public class Health : MonoBehaviour
     public void Death()
     {
         //Lidar com a morte da personagem
+        SceneManager.LoadScene("DeathMenu");
     }
 
 
