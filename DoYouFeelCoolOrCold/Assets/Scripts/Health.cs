@@ -8,8 +8,6 @@ public class Health : MonoBehaviour
     [Tooltip("Vida da Personagem")]
     public float health;
     private GameObject healthBar;
-    [Tooltip("O quão depressa perde vida")]
-    public float healthLossRatio = 1f;
 
 
     private void Start()
@@ -25,11 +23,6 @@ public class Health : MonoBehaviour
         {
             Death();
         }
-    }
-
-    public void healthLoss()
-    {
-        //Se nao estiver à sombra, perder vida
     }
 
     public void Death()
