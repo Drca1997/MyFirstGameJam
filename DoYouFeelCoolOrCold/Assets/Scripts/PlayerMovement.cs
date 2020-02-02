@@ -32,54 +32,64 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
+        if (PauseMenu.GameIsPaused == false)
+            stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
     }
     public void Update()
     {
-        stamina = staminaBar.transform.Find("Bar").localScale.x;
-        movimento.x = Input.GetAxisRaw("Horizontal");
-        movimento.y = Input.GetAxisRaw("Vertical");
-        movimento = Vector3.ClampMagnitude(movimento, 1);
-        is_running = false;
+        if (PauseMenu.GameIsPaused == false)
+        {
+            stamina = staminaBar.transform.Find("Bar").localScale.x;
+            movimento.x = Input.GetAxisRaw("Horizontal");
+            movimento.y = Input.GetAxisRaw("Vertical");
+            movimento = Vector3.ClampMagnitude(movimento, 1);
+            is_running = false;
 
-        if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
-        // Pode correr se tiver stamina e não estiver tarrafalizado.
-        {
-            is_running = movimento.magnitude != 0;
-            movimento *= runModifier;
-        }
-        else if (stamina == 0f)
-        // Tarrafalizacao por esvaziar stamina.
-        {
-            tarrafal = true;
+            if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
+            // Pode correr se tiver stamina e não estiver tarrafalizado.
+            {
+                is_running = movimento.magnitude != 0;
+                movimento *= runModifier;
+            }
+            else if (stamina == 0f)
+            // Tarrafalizacao por esvaziar stamina.
+            {
+                tarrafal = true;
+            }
         }
     }
 
 
     public void FixedUpdate()
     {
-        // Chama o gestor da stamina e depois mexe o boneco.
-        StaminaManager();
-        rb.MovePosition(rb.position + movimento * velocidade * Time.fixedDeltaTime);
+        if (PauseMenu.GameIsPaused == false)
+        {
+            // Chama o gestor da stamina e depois mexe o boneco.
+            StaminaManager();
+            rb.MovePosition(rb.position + movimento * velocidade * Time.fixedDeltaTime);
+        }
     }
 
     public void StaminaManager()
     {
-        if (is_running)
-        // Se estiver a correr, vai degenerar.
+        if (PauseMenu.GameIsPaused == false)
         {
-            staminaBar.SetSize(stamina - staminaRunModifier);
-            
-        }
-        else if (stamina < 1f)
-        // Se não houver delay e a stamina não estiver cheia, vai regenerar.
-        {
-            staminaBar.SetSize(stamina + stamina_regeneration);
-        }
-        else
-        // Destarrafalizacao por ter enchido a stamina
-        {
-            tarrafal = false;
+            if (is_running)
+            // Se estiver a correr, vai degenerar.
+            {
+                staminaBar.SetSize(stamina - staminaRunModifier);
+
+            }
+            else if (stamina < 1f)
+            // Se não houver delay e a stamina não estiver cheia, vai regenerar.
+            {
+                staminaBar.SetSize(stamina + stamina_regeneration);
+            }
+            else
+            // Destarrafalizacao por ter enchido a stamina
+            {
+                tarrafal = false;
+            }
         }
     }
 }

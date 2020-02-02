@@ -41,9 +41,12 @@ public class HealthBar : Bar
     //só pra testar
     public void test_health_change()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (PauseMenu.GameIsPaused == false)
         {
-            ChangeHealthBarValue(health - 0.1f);
+            if (Input.GetMouseButtonDown(0))
+            {
+                ChangeHealthBarValue(health - 0.1f);
+            }
         }
     }
 
