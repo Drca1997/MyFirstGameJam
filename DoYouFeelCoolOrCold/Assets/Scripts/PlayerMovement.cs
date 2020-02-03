@@ -8,9 +8,9 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Referência ao RigidBody da Personagem")]
     public Rigidbody2D rb;
     [Tooltip("Velocidade normal da Personagem")]
-    [SerializeField] private float velocidade = 3f;
+    [SerializeField] private float velocidade = 5f;
     [Tooltip("O quanto a velocidade da personagem aumenta a correr")]
-    [SerializeField] private float runModifier = 2f;
+    [SerializeField] private float runModifier = 4f;
 
     [Header("Stamina")]
     [Tooltip("Referência ao objecto Barra da Stamina")]
@@ -25,7 +25,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float staminaRegenerationRatio = 1f;
 
     
-    Vector2 movimento;
+    Vector3 movimento;
     private bool is_running;
     private bool tarrafal = true;
     private float stamina_regeneration;
@@ -43,7 +43,6 @@ public class PlayerMovement : MonoBehaviour
             movimento.x = Input.GetAxisRaw("Horizontal");
             movimento.y = Input.GetAxisRaw("Vertical");
             movimento = Vector3.ClampMagnitude(movimento, 1);
-            is_running = false;
 
             if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
             // Pode correr se tiver stamina e não estiver tarrafalizado.
@@ -55,41 +54,37 @@ public class PlayerMovement : MonoBehaviour
             // Tarrafalizacao por esvaziar stamina.
             {
                 tarrafal = true;
+                is_running = false;
             }
-        }
-    }
+            else
+            {
+                is_running = false;
+            }
 
-
-    public void FixedUpdate()
-    {
-        if (PauseMenu.GameIsPaused == false)
-        {
             // Chama o gestor da stamina e depois mexe o boneco.
             StaminaManager();
-            rb.MovePosition(rb.position + movimento * velocidade * Time.fixedDeltaTime);
+            rb.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
         }
     }
 
     public void StaminaManager()
     {
-        if (PauseMenu.GameIsPaused == false)
-        {
-            if (is_running)
+        if (PauseMenu.GameIsPaused == false && is_running)
             // Se estiver a correr, vai degenerar.
-            {
-                staminaBar.SetSize(stamina - staminaRunModifier);
+        {
+            staminaBar.SetSize(stamina - staminaRunModifier);
 
-            }
-            else if (stamina < 1f)
-            // Se não houver delay e a stamina não estiver cheia, vai regenerar.
-            {
-                staminaBar.SetSize(stamina + stamina_regeneration);
-            }
-            else
-            // Destarrafalizacao por ter enchido a stamina
-            {
-                tarrafal = false;
-            }
+        }
+        else if (stamina < 1f)
+        // Se não houver delay e a stamina não estiver cheia, vai regenerar.
+        {
+            staminaBar.SetSize(stamina + stamina_regeneration);
+        }
+        else
+        // Destarrafalizacao por ter enchido a stamina
+        {
+            tarrafal = false;
         }
     }
+    
 }
