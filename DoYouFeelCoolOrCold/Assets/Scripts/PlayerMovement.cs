@@ -69,21 +69,24 @@ public class PlayerMovement : MonoBehaviour
 
     public void StaminaManager()
     {
-        if (PauseMenu.GameIsPaused == false && is_running)
+        if (PauseMenu.GameIsPaused == false)
+        {
+            if (is_running)
             // Se estiver a correr, vai degenerar.
-        {
-            staminaBar.SetSize(stamina - staminaRunModifier);
+            {
+                staminaBar.SetSize(stamina - staminaRunModifier);
 
-        }
-        else if (stamina < 1f)
-        // Se não houver delay e a stamina não estiver cheia, vai regenerar.
-        {
-            staminaBar.SetSize(stamina + stamina_regeneration);
-        }
-        else
-        // Destarrafalizacao por ter enchido a stamina
-        {
-            tarrafal = false;
+            }
+            else if (stamina < 1f)
+            // Se não houver delay e a stamina não estiver cheia, vai regenerar.
+            {
+                staminaBar.SetSize(stamina + stamina_regeneration);
+            }
+            else
+            // Destarrafalizacao por ter enchido a stamina
+            {
+                tarrafal = false;
+            }
         }
     }
     

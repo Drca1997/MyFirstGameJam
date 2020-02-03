@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
+    public static bool GameIsPaused;
 
     public GameObject pauseMenuUI;
     public GameObject optionsMenuUI;
+
+    private void Awake()
+    {
+        GameIsPaused = false;
+        Time.timeScale = 1f;
+    }
 
     // Update is called once per frame
     void Update()

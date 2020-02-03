@@ -1156,6 +1156,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0.8
+  healthBarToChange: {fileID: 605999883}
+  tileMap: {fileID: 1917043651}
+  safeTile: {fileID: 11400000, guid: 5288c60427785b34583ef22681d08093, type: 2}
+  Player: {fileID: 695183164}
 --- !u!212 &695183169
 SpriteRenderer:
   m_ObjectHideFlags: 0
