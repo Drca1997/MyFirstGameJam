@@ -45,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
             movimento.x = Input.GetAxisRaw("Horizontal");
             movimento.y = Input.GetAxisRaw("Vertical");
             movimento = Vector3.ClampMagnitude(movimento, 1);
+            animator.SetInteger("state", 0);
 
             if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
             // Pode correr se tiver stamina e não estiver tarrafalizado.
@@ -56,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
             // Tarrafalizacao por esvaziar stamina.
             {
                 tarrafal = true;
+                animator.SetBool("tarrafal", true);
                 is_running = false;
             }
             else
@@ -63,13 +65,17 @@ public class PlayerMovement : MonoBehaviour
                 is_running = false;
             }
 
-            // Chama o gestor da stamina e depois mexe o boneco.
+            // Chama o gestor da stamina.
             StaminaManager();
 
             if (movimento.magnitude != 0)
             {
+                // Avisa o Animator que está Run ou Walk.
+                animator.SetInteger("state", is_running ? 2 : 1);
+                // Avisa o Animator para que lado está a olhar o boneco.
                 animator.SetFloat("move_x", movimento.x);
                 animator.SetFloat("move_y", movimento.y);
+                // Desloca o boneco.
                 rb.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
             }
 
@@ -93,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         // Destarrafalizacao por ter enchido a stamina
         {
             tarrafal = false;
+            animator.SetBool("tarrafal", false);
         }
         
     }

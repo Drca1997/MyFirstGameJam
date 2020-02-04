@@ -1104,8 +1104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 695183167}
   animator: {fileID: 695183171}
-  velocidade: 5
-  runModifier: 4
+  velocidade: 2
+  runModifier: 1
   staminaBar: {fileID: 1571151621}
   stamina: 1
   staminaRunModifier: 0.01
@@ -1205,7 +1205,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.29, y: 1.98}
+  m_Size: {x: 1.23, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
