@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
             stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
         if (PauseMenu.GameIsPaused == false)
         {
