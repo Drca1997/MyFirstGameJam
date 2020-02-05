@@ -24,19 +24,19 @@ public class Health : MonoBehaviour
         health = 1 - healthBar.transform.Find("Bar").localScale.x;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         Vector3 pos = Player.transform.position;
         Vector3 new_pos = new Vector3(pos.x, pos.y - 0.75f, pos.z);
         Vector3Int coordinate = tileMap.WorldToCell(new_pos);
 
         //verificar se esta na safe zone
-        if (string.Equals(tileMap.GetSprite(coordinate).name, safeName))
+        /*if (string.Equals(tileMap.GetSprite(coordinate).name, safeName))
         {
             Debug.Log("at safe zone");
             healthBarToChange.ChangeHealthBarValue(healthBarToChange.getHealth() + healingSpeedSafeZone);
         }
-
+        */
         health = 1 - healthBar.transform.Find("Bar").localScale.x;
 
         if (health <= 0f)
