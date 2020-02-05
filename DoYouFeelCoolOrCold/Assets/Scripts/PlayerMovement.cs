@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     
     Vector3 movimento;
-    private bool is_running;
+    public bool is_running;
     private bool tarrafal = true;
     private float stamina_regeneration;
 
