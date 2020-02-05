@@ -3,7 +3,12 @@ guid: 3ccada536c3a08347a1e094057ef003c
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - healthBarToChange: {instanceID: 0}
+  - tileMap: {instanceID: 0}
+  - safeTile: {instanceID: 0}
+  - safe: {fileID: 21300000, guid: cd0a8b5b76aff1844b3ff8db0a4858b6, type: 3}
+  - Player: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
