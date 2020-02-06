@@ -27,13 +27,9 @@ public class InstaDeath : MonoBehaviour
            temp = grid.WorldToCell(collision.GetContact(0).point);
            coordenadas = Vector3Int.RoundToInt(temp);
            tile = tilemap.GetTile(coordenadas);
-           Debug.Log("TILE: " + tile);
            if (tile)
            {
-                if (tile.name.Equals("lava"))
-                {
-                    Player.GetComponent<Health>().Death();
-                }
+                Player.GetComponent<Health>().Death();
            }
 
         }
