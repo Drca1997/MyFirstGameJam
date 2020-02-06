@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
                 // Desloca o boneco.
                 rb.MovePosition(transform.position + movimento * velocidade * Time.fixedDeltaTime);
             }
-
+            
         }
     }
 
