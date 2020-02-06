@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("Referência ao Animator da Personagem")]
     public Animator animator;
     [Tooltip("Velocidade normal da Personagem")]
-    [SerializeField] private float velocidade = 5f;
+    public float velocidade = 5f;
     [Tooltip("O quanto a velocidade da personagem aumenta a correr")]
     [SerializeField] private float runModifier = 3f;
 

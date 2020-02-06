@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public Tile safeTile;
     private string safeName;
     public GameObject Player;
+    public Animator animator;
     private float healingSpeedSafeZone = 0.005f;
 
     private void Start()
@@ -47,9 +48,34 @@ public class Health : MonoBehaviour
 
     public void Death()
     {
+        
+        float transition_scene_waiting_time = 0f;
+        Player.GetComponent<PlayerMovement>().velocidade = 0f;
         //Lidar com a morte da personagem
-        SceneManager.LoadScene("DeathMenu");
+        animator.SetBool("is_dead", true);
+        
+        AnimatorClipInfo[] clips = animator.GetCurrentAnimatorClipInfo(0);
+        
+        foreach(AnimatorClipInfo clip in clips)
+        {
+            
+            transition_scene_waiting_time += clip.clip.length;         
+        }
+
+        Debug.Log("WAITING TIME: " + transition_scene_waiting_time);
+        StartCoroutine(DelayedLoad(transition_scene_waiting_time));
+
     }
 
+    IEnumerator DelayedLoad(float waiting_time)
+    {
+        
+        //Wait until clip finish playing
+        yield return new WaitForSeconds(waiting_time);
+        //Load scene here
+        SceneManager.LoadScene("DeathMenu");
+
+        
+    }
 
 }
