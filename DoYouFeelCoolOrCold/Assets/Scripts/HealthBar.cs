@@ -45,7 +45,7 @@ public class HealthBar : Bar
         temp.a = health;
 
         barsprite.color = temp;
-        Debug.Log(barsprite.color.a);
+        //Debug.Log(barsprite.color.a);
     }
 
     //só pra testar
