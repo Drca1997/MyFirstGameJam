@@ -8,6 +8,7 @@ public class HealthBar : Bar
     private float health;
     private Transform red_bar;
     private GameObject player;
+    private bool healing_safeZone;
     private bool in_safeZone;
 
     [Tooltip("O quão depressa ganha vida à sombra")]
@@ -20,6 +21,7 @@ public class HealthBar : Bar
     private new void Awake()
     {
         base.Start();
+        healing_safeZone = true;
         in_safeZone = false;
         red_bar = transform.Find("Red_Bar");
         player = GameObject.Find("Player");
@@ -74,16 +76,20 @@ public class HealthBar : Bar
         }
         else
         {
-            //Se estiver à sombra, ganahr vida
-            if (health > 0)
+            if ( healing_safeZone )
             {
-                ChangeHealthBarValue(health + healthGainRatio * Time.fixedDeltaTime);
+                //Se estiver à sombra, ganhar vida
+                if (health > 0)
+                {
+                    ChangeHealthBarValue(health + healthGainRatio * Time.fixedDeltaTime);
+                }
             }
         }
     }
 
-    public void set_safeZone(bool inside)
+    public void set_safeZone(bool inside, bool healing)
     {
         in_safeZone = inside;
+        healing_safeZone = healing;
     }
 }

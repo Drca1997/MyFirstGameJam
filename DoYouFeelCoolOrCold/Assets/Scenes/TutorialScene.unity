@@ -1388,6 +1388,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &173410899
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1596,6 +1597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &189665986
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2226,6 +2228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &222207913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4799,6 +4802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &634445387
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4916,6 +4920,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &657623511
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5440,6 +5445,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &795094913
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5691,6 +5697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &834288126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6881,6 +6888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!70 &944997898
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -80808,6 +80816,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &1839948240
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -81743,6 +81752,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthBar: {fileID: 200474204}
+  healing: 1
 --- !u!212 &1952038818
 SpriteRenderer:
   m_ObjectHideFlags: 0

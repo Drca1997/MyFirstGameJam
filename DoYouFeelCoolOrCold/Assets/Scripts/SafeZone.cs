@@ -6,6 +6,7 @@ public class SafeZone : MonoBehaviour
 {
     private GameObject player;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private bool healing;
 
     private void Awake()
     {
@@ -16,7 +17,8 @@ public class SafeZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            healthBar.set_safeZone(true);
+            Debug.Log(healing);
+            healthBar.set_safeZone(true,healing);
         }
     }
 
@@ -24,7 +26,7 @@ public class SafeZone : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            healthBar.set_safeZone(false);
+            healthBar.set_safeZone(false,healing);
         }
     }
 }
