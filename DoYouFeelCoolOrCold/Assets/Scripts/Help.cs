@@ -19,7 +19,9 @@ public class Help : MonoBehaviour
                                    "Be sure to fully cool yourself before continuing,\nyou never know when you'll need to walk/run a big distance!",
                                    "Damn, beach sure is crowdy today.\nBetter not to touch these people, they're hot from being in the sun for too long.",
                                    "There are a lot of drinks there; maybe i shouldn't drink all of them at once..",
-                                   "The cavern are the end of the level, so when you enter them, you advance to the next level!"};
+                                   "The cavern are the end of the level, so when you enter them, you advance to the next level!",
+                                   "Hmm, it looks like this sand is a little bit colder than the other.. I wonder what the catch is..",
+                                   "Of course there had to the a catch.. Shadows are hotter and dont help me cool myself.\nGuess i gotta find the right way fast."};
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
