@@ -74,7 +74,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (sound_hasnt_started)
                     {
-                        sources[1].PlayOneShot(sources[1].clip);
+                        sources[1].Play();
                         sound_hasnt_started = false;
                     }
                     else
@@ -87,11 +87,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (sound_hasnt_started)
                     {
-                        sources[0].PlayOneShot(sources[0].clip);
+                        sources[0].Play();
                         sound_hasnt_started = false;
                     }
                     else
                     {
+
                         sources[0].UnPause();
                         Debug.Log(sources[0].clip.name);
                     }
