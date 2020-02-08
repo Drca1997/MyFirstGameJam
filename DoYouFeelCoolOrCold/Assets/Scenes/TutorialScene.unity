@@ -3346,17 +3346,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 67969d75b12136347aa30dbee89b652d,
         type: 3}
-    - target: {fileID: 8784087678601002632, guid: 85d6bdce6da95ba4f807d3081918c822,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: efc891877ac9685448ab7d588c770e7e,
-        type: 3}
     - target: {fileID: 8784087679760681334, guid: 85d6bdce6da95ba4f807d3081918c822,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 6997370552f36104fa008ed5eb13bf80,
+        type: 3}
+    - target: {fileID: 8784087678601002632, guid: 85d6bdce6da95ba4f807d3081918c822,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: efc891877ac9685448ab7d588c770e7e,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85d6bdce6da95ba4f807d3081918c822, type: 3}
@@ -3437,6 +3437,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6097711227159274267, guid: 544198bf615c09a44b2ec39124d25286,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 200474204}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite
@@ -5304,6 +5309,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6097711227159274267, guid: 544198bf615c09a44b2ec39124d25286,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 200474204}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite
@@ -8478,6 +8488,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 18c4d5a6d0fa54d438c559e67fede2f3,
         type: 3}
+    - target: {fileID: 7190911398380779185, guid: f6bd505f2f3cbe64896c7bad0c33a78e,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 200474204}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bd505f2f3cbe64896c7bad0c33a78e, type: 3}
 --- !u!4 &1110219289 stripped
@@ -80140,6 +80155,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6097711227159274267, guid: 544198bf615c09a44b2ec39124d25286,
+        type: 3}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 200474204}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite
