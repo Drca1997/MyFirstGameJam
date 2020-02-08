@@ -74,26 +74,26 @@ public class PlayerMovement : MonoBehaviour
                 {
                     if (sound_hasnt_started)
                     {
-                        sources[1].Play();
+                        sources[1].PlayOneShot(sources[1].clip);
                         sound_hasnt_started = false;
                     }
                     else
                     {
                         sources[1].UnPause();
-                        Debug.Log("CORRER");
+                        Debug.Log(sources[1].clip.name);
                     }
                 }
                 else
                 {
                     if (sound_hasnt_started)
                     {
-                        sources[0].Play();
+                        sources[0].PlayOneShot(sources[0].clip);
                         sound_hasnt_started = false;
                     }
                     else
                     {
                         sources[0].UnPause();
-                        Debug.Log("ANDAR");
+                        Debug.Log(sources[0].clip.name);
                     }
                 }
 
