@@ -12,7 +12,10 @@ public class Health : MonoBehaviour
     private GameObject healthBar;
     public GameObject Player;
     public Animator animator;
+
     private Som s;
+    public GameObject deathMenuUI;
+
     private void Start()
     {
         healthBar = GameObject.Find("HealthBar");
@@ -22,10 +25,6 @@ public class Health : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //Vector3 pos = Player.transform.position;
-        //Vector3 new_pos = new Vector3(pos.x, pos.y - 0.75f, pos.z);
-        //Vector3Int coordinate = tileMap.WorldToCell(new_pos);
-
         health = 1 - healthBar.transform.Find("Bar").localScale.x;
 
         if (health <= 0f)
@@ -58,13 +57,12 @@ public class Health : MonoBehaviour
 
     IEnumerator DelayedLoad(float waiting_time)
     {
-        
         //Wait until clip finish playing
         yield return new WaitForSeconds(waiting_time);
-        //Load scene here
-        SceneManager.LoadScene(Application.loadedLevel);
-
-        
+        //Set death menu active
+        Time.timeScale = 0f;
+        PauseMenu.GameIsPaused = true;
+        deathMenuUI.SetActive(true);
     }
 
 }

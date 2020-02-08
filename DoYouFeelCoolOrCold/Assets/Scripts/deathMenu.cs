@@ -7,7 +7,7 @@ public class deathMenu : MonoBehaviour
 {
     public void Restart()
     {
-        SceneManager.LoadScene(Application.loadedLevel + 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void MainMenu()
