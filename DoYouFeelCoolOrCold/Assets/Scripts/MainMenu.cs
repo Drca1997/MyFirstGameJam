@@ -8,7 +8,6 @@ public class MainMenu : MonoBehaviour
     public void PlayGame()
     {
         GameObject.Find("PlayButton").SetActive(false);
-        GameObject.Find("OptButton").SetActive(false);
         GameObject.Find("QuitButton").SetActive(false);
         StartCoroutine(Waiting());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
