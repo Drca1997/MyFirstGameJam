@@ -3517,7 +3517,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037143619}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite
@@ -5244,7 +5244,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037143619}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite
@@ -8120,7 +8120,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037143619}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6bd505f2f3cbe64896c7bad0c33a78e, type: 3}
 --- !u!4 &1110219289 stripped
@@ -79646,7 +79646,7 @@ PrefabInstance:
         type: 3}
       propertyPath: healthBar
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2037143619}
     - target: {fileID: 6097711227159274244, guid: 544198bf615c09a44b2ec39124d25286,
         type: 3}
       propertyPath: m_Sprite

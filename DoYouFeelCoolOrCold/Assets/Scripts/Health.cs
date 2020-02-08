@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
         //Wait until clip finish playing
         yield return new WaitForSeconds(waiting_time);
         //Load scene here
-        SceneManager.LoadScene(Application.loadedLevel - 1);
+        SceneManager.LoadScene(Application.loadedLevel);
 
         
     }
