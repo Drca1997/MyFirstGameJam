@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+       
         foreach(Som s in sons)
         {
             s.source = gameObject.AddComponent<AudioSource>();

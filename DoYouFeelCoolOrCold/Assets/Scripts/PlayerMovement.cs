@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float staminaRunModifier = 0.01f;
     [Tooltip("O quão rápido se recupera stamina em relação ao quaão rápido se a perde")]
     [SerializeField] private float staminaRegenerationRatio = 1f;
-    private AudioSource source;
+    private AudioSource[] sources;
     
     Vector3 movimento;
     public bool is_running;
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        source= GetComponent<AudioSource>();
+        sources= GetComponents<AudioSource>();
         if (PauseMenu.GameIsPaused == false)
             stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
     }
@@ -49,24 +49,7 @@ public class PlayerMovement : MonoBehaviour
             movimento = Vector3.ClampMagnitude(movimento, 1);
             
             animator.SetInteger("state", 0);
-            if (movimento.x !=0 || movimento.y != 0)
-            {
-                if (sound_hasnt_started)
-                {
-                    source.Play();
-                    sound_hasnt_started = false;
-                }
-                else
-                {
-                    source.UnPause();
-                }
             
-            }
-            else
-            {
-                source.Pause();
-                
-            }
             if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
             // Pode correr se tiver stamina e não estiver tarrafalizado.
             {
@@ -85,6 +68,44 @@ public class PlayerMovement : MonoBehaviour
                 is_running = false;
             }
 
+            if (movimento.x != 0 || movimento.y != 0 )
+            {
+                if (is_running)
+                {
+                    if (sound_hasnt_started)
+                    {
+                        sources[1].Play();
+                        sound_hasnt_started = false;
+                    }
+                    else
+                    {
+                        sources[1].UnPause();
+                        Debug.Log("CORRER");
+                    }
+                }
+                else
+                {
+                    if (sound_hasnt_started)
+                    {
+                        sources[0].Play();
+                        sound_hasnt_started = false;
+                    }
+                    else
+                    {
+                        sources[0].UnPause();
+                        Debug.Log("ANDAR");
+                    }
+                }
+
+            }
+         
+        
+            else
+            {
+                sources[0].Pause();
+                sources[1].Pause();
+
+            }
             // Chama o gestor da stamina.
             StaminaManager();
 
