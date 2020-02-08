@@ -7,6 +7,8 @@ public class deathMenu : MonoBehaviour
 {
     public void Restart()
     {
+        Time.timeScale = 1f;
+        PauseMenu.GameIsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
