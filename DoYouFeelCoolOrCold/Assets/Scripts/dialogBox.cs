@@ -8,6 +8,7 @@ public class dialogBox : MonoBehaviour
     private string[] helpTexts;
     public TMPro.TextMeshProUGUI dialogTextUI;
     public GameObject spacePressUI;
+    private static bool in_dialog;
 
     private void Awake()
     {
@@ -29,8 +30,14 @@ public class dialogBox : MonoBehaviour
         }
     }
 
+    public static bool checkDialog()
+    {
+        return in_dialog;
+    }
+
     IEnumerator DialogueS()
     {
+        in_dialog = true;
         Time.timeScale = 0f;
         PauseMenu.GameIsPaused = true;
         spacePressUI.SetActive(true);
@@ -48,6 +55,7 @@ public class dialogBox : MonoBehaviour
         dialogTextUI.SetText("");
         Time.timeScale = 1f;
         PauseMenu.GameIsPaused = false;
+        in_dialog = false;
     }
 
     IEnumerator WaitForEnter()
