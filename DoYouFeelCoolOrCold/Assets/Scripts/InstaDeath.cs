@@ -9,6 +9,12 @@ public class InstaDeath : MonoBehaviour
     private Tilemap tilemap;
     private TileBase tile;
     private Grid grid;
+    private Som s;
+    private void Start()
+    {
+        s = FindObjectOfType<AudioManager>().getSom("Lava");
+        s.source.Play();
+    }
 
     // Update is called once per frame
     void FixedUpdate()

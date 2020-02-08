@@ -7,6 +7,7 @@ public class Help : MonoBehaviour
     private GameObject player;
     private string[] helpTexts;
     public TMPro.TextMeshProUGUI helpTextUI;
+    private Som s;
 
     private void Awake()
     {
@@ -18,11 +19,12 @@ public class Help : MonoBehaviour
                                    "Be sure to fully cool yourself before continuing,\nyou never know when you'll need to walk/run a big distance!",
                                    "Be sure to fully cool yourself before continuing,\nyou never know when you'll need to walk/run a big distance!",
                                    "Damn, beach sure is crowdy today.\nBetter not to touch these people, they're hot from being in the sun for too long.",
-                                   "There are a lot of drinks there; maybe i shouldn't drink all of them at once..",
+                                   "There are a lot of drinks there; maybe I shouldn't drink all of them at once..",
                                    "The cavern are the end of the level, so when you enter them, you advance to the next level!",
                                    "Hmm, it looks like this sand is a little bit colder than the other.. I wonder what the catch is..",
-                                   "Of course there had to the a catch.. Shadows are hotter and dont help me cool myself.\nGuess i gotta find the right way fast."};
+                                   "Of course there had to be a catch.. Shadows are hotter and don't help me cool myself.\nGuess I gotta find the right way fast."};
         player = GameObject.FindGameObjectWithTag("Player");
+        s = FindObjectOfType<AudioManager>().getSom("Help");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -32,6 +34,7 @@ public class Help : MonoBehaviour
             //meter
             Debug.Log("Meter");
             helpTextUI.SetText(helpTexts[int.Parse(this.name)-1]);
+            s.source.Play();
         }
     }
 
@@ -42,6 +45,7 @@ public class Help : MonoBehaviour
             //tirar
             Debug.Log("Tirar");
             helpTextUI.SetText("");
+           
         }
     }
 }

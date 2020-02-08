@@ -10,10 +10,12 @@ public class Pickable : MonoBehaviour
 
     [Tooltip("Quanto o pickup fornece de vida")]
     public float bonus;
+    private Som s;
 
     private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        s = FindObjectOfType<AudioManager>().getSom("Pickable"); ;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -23,6 +25,7 @@ public class Pickable : MonoBehaviour
             
             Debug.Log("Apanhou uma monster");
             healthBar.ChangeHealthBarValue(healthBar.getHealth() + bonus);
+            s.source.Play();
             //gameObject.SetActive(false);
             Destroy(gameObject);
         }

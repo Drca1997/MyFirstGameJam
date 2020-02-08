@@ -12,11 +12,12 @@ public class Health : MonoBehaviour
     private GameObject healthBar;
     public GameObject Player;
     public Animator animator;
-
+    private Som s;
     private void Start()
     {
         healthBar = GameObject.Find("HealthBar");
         health = 1 - healthBar.transform.Find("Bar").localScale.x;
+        s = FindObjectOfType<AudioManager>().getSom("Morte");
     }
 
     private void FixedUpdate()
@@ -50,6 +51,7 @@ public class Health : MonoBehaviour
         }
 
         Debug.Log("WAITING TIME: " + transition_scene_waiting_time);
+        s.source.Play();
         StartCoroutine(DelayedLoad(transition_scene_waiting_time));
 
     }
