@@ -7,14 +7,16 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        GameObject.Find("MainMenu").SetActive(false);
+        GameObject.Find("PlayButton").SetActive(false);
+        GameObject.Find("OptButton").SetActive(false);
+        GameObject.Find("QuitButton").SetActive(false);
         StartCoroutine(Waiting());
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     IEnumerator Waiting()
     {
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSecondsRealtime(Time.fixedDeltaTime * 5);
     }
 
     public void QuitGame()
