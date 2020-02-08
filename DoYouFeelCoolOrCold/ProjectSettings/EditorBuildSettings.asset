@@ -9,32 +9,20 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: e1c59ec79546d6d44a29b6d0cd1487d0
   - enabled: 1
-    path: Assets/Scenes/DeathMenu.unity
-    guid: 6d2d876396d2d6541b4b92f4907e39d5
-  - enabled: 1
     path: Assets/Scenes/TutorialScene.unity
     guid: da555417413d8414eb1e674951cf38c8
-  - enabled: 1
-    path: Assets/Scenes/DeathMenu1.unity
-    guid: e7ef62238d0c33a41b7c1fd5b86eb486
   - enabled: 1
     path: Assets/Scenes/ObstaclesScene.unity
     guid: 36786cf8ceabe1f4484a76acdee2b52f
   - enabled: 1
-    path: Assets/Scenes/DeathMenu2.unity
-    guid: c95a67aa64267d948a1d3d5da3886bc4
-  - enabled: 1
     path: Assets/Scenes/SlowDeathLevel.unity
     guid: bbc3556e7d0a71e468666515616a78f2
-  - enabled: 1
-    path: Assets/Scenes/DeathMenu3.unity
-    guid: 9d8c3906adcd03343b8d1ae13f122501
   - enabled: 1
     path: Assets/Scenes/InstantDeathLevel.unity
     guid: 7d77b9de4621d3144aca833f973e18e7
   - enabled: 1
-    path: Assets/Scenes/DeathMenu4.unity
-    guid: 7df59745cf8859b469a607e4b6a9048d
+    path: Assets/Scenes/FinalLevel.unity
+    guid: a30166c9fd6007f4b85d3c5ba330b922
   - enabled: 1
     path: Assets/Scenes/VictoryMenu.unity
     guid: c35dd8496ff634649a148c75e34fe279
