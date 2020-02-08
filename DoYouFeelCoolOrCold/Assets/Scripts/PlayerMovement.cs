@@ -24,17 +24,25 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float staminaRunModifier = 0.01f;
     [Tooltip("O quão rápido se recupera stamina em relação ao quaão rápido se a perde")]
     [SerializeField] private float staminaRegenerationRatio = 1f;
-    private AudioSource[] sources;
+    private AudioSource source;
     
     Vector3 movimento;
     public bool is_running;
     private bool tarrafal = true;
     private float stamina_regeneration;
     private bool sound_hasnt_started = true;
+    private AudioSource run_source;
+    [SerializeField]private AudioClip run_clip;
+    private AudioClip walk_clip;
+    private int estado = 0;
+    private int novo_estado = 0;
+    
 
     private void Awake()
     {
-        sources= GetComponents<AudioSource>();
+        source= GetComponent<AudioSource>();
+        walk_clip = source.clip;
+
         if (PauseMenu.GameIsPaused == false)
             stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
     }
@@ -43,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PauseMenu.GameIsPaused == false)
         {
+            
             stamina = staminaBar.transform.Find("Bar").localScale.x;
             movimento.x = Input.GetAxisRaw("Horizontal");
             movimento.y = Input.GetAxisRaw("Vertical");
@@ -70,41 +79,78 @@ public class PlayerMovement : MonoBehaviour
 
             if (movimento.x != 0 || movimento.y != 0 )
             {
-                if (is_running)
+               
+                
+                if (is_running == false)
                 {
-                    if (sound_hasnt_started)
+                    estado = novo_estado;
+                    novo_estado = 0;
+                    if (estado != novo_estado)
                     {
-                        sources[1].Play();
-                        sound_hasnt_started = false;
+                        source.clip = walk_clip;
+                   
+                        source.Play();
+                        Debug.Log(source.clip.name);
+                       
                     }
                     else
                     {
-                        sources[1].UnPause();
-                        Debug.Log(sources[1].clip.name);
+                        if (sound_hasnt_started)
+                        {
+
+                            source.Play();
+                            sound_hasnt_started = false;
+                        }
+                        else
+                        {
+
+                            source.UnPause();
+                            Debug.Log(source.clip.name);
+                        }
                     }
+                    
                 }
                 else
                 {
-                    if (sound_hasnt_started)
-                    {
-                        sources[0].Play();
-                        sound_hasnt_started = false;
+                    estado = novo_estado;
+                    novo_estado = 1;
+                    if (estado != novo_estado){
+                        source.clip = run_clip;
+                        source.Play();
+                        Debug.Log(source.clip.name);
                     }
                     else
                     {
+                        if (sound_hasnt_started)
+                        {
 
-                        sources[0].UnPause();
-                        Debug.Log(sources[0].clip.name);
+                            source.Play();
+                            sound_hasnt_started = false;
+                        }
+                        else
+                        {
+
+
+                            source.UnPause();
+                            Debug.Log(source.clip.name);
+                        }
                     }
+                    
                 }
+               
 
             }
          
-        
             else
             {
-                sources[0].Pause();
-                sources[1].Pause();
+                if (estado != novo_estado)
+                {
+                    source.Stop();
+                }
+                else
+                {
+                    source.Pause();
+                }
 
             }
             // Chama o gestor da stamina.
@@ -145,5 +191,6 @@ public class PlayerMovement : MonoBehaviour
         }
         
     }
+ 
     
 }

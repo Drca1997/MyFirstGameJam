@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class dialogBox : MonoBehaviour
 {
-    private GameObject player;
+    [SerializeField]private GameObject player;
     private string[] helpTexts;
     public TMPro.TextMeshProUGUI dialogTextUI;
     public GameObject spacePressUI;
@@ -12,6 +12,7 @@ public class dialogBox : MonoBehaviour
 
     private void Awake()
     {
+        in_dialog = false;
         helpTexts = new string[] {"Hey-o Mike, las night was wack dude!",
                                   "You gotta go home now tho, so be sure to catch the ice cream van.",
                                   "How do you get there? You'll just find at the end of the different beaches.",
@@ -22,6 +23,14 @@ public class dialogBox : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
+
+    private void FixedUpdate()
+    {
+        if (checkDialog())
+        {
+            player.GetComponent<AudioSource>().Pause();
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
