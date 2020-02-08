@@ -1037,6 +1037,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6569781973279442476, guid: d646a2ac6e2cfa54e8d51bb61415741f,
+        type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 1539642397}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d646a2ac6e2cfa54e8d51bb61415741f, type: 3}
 --- !u!114 &143950453 stripped
@@ -8984,6 +8989,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7547711980806094309, guid: da57fe9f0ec2352448854de21dc85399,
+        type: 3}
+      propertyPath: camara
+      value: 
+      objectReference: {fileID: 1539642397}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da57fe9f0ec2352448854de21dc85399, type: 3}
 --- !u!1 &1219542491
