@@ -24,13 +24,7 @@ public class dialogBox : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
-    {
-        if (checkDialog())
-        {
-            player.GetComponent<AudioSource>().Pause();
-        }
-    }
+   
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -47,6 +41,7 @@ public class dialogBox : MonoBehaviour
     IEnumerator DialogueS()
     {
         in_dialog = true;
+        player.GetComponent<AudioSource>().Pause();
         Time.timeScale = 0f;
         PauseMenu.GameIsPaused = true;
         spacePressUI.SetActive(true);
