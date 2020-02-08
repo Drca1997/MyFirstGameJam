@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
         GameObject.Find("OptButton").SetActive(false);
         GameObject.Find("QuitButton").SetActive(false);
         StartCoroutine(Waiting());
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     IEnumerator Waiting()
