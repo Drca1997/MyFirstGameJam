@@ -80,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
                     else
                     {
                         sources[1].UnPause();
-                        Debug.Log("CORRER");
+                        Debug.Log(sources[1].clip.name);
                     }
                 }
                 else
@@ -92,8 +92,9 @@ public class PlayerMovement : MonoBehaviour
                     }
                     else
                     {
+
                         sources[0].UnPause();
-                        Debug.Log("ANDAR");
+                        Debug.Log(sources[0].clip.name);
                     }
                 }
 
