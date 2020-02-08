@@ -8,7 +8,6 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused;
 
     public GameObject pauseMenuUI;
-    public GameObject optionsMenuUI;
 
     private void Awake()
     {
@@ -23,15 +22,7 @@ public class PauseMenu : MonoBehaviour
         {
             if (GameIsPaused)
             {
-                if (optionsMenuUI.activeSelf)
-                {
-                    optionsMenuUI.SetActive(false);
-                    pauseMenuUI.SetActive(true);
-                }
-                else
-                {
-                    Resume();
-                }
+                Resume();
             }
             else
             {
