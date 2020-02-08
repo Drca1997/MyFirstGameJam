@@ -24,15 +24,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float staminaRunModifier = 0.01f;
     [Tooltip("O quão rápido se recupera stamina em relação ao quaão rápido se a perde")]
     [SerializeField] private float staminaRegenerationRatio = 1f;
-
+    private AudioSource source;
     
     Vector3 movimento;
     public bool is_running;
     private bool tarrafal = true;
     private float stamina_regeneration;
+    private bool sound_hasnt_started = true;
 
     private void Awake()
     {
+        source= GetComponent<AudioSource>();
         if (PauseMenu.GameIsPaused == false)
             stamina_regeneration = staminaRunModifier / staminaRegenerationRatio;
     }
@@ -45,8 +47,26 @@ public class PlayerMovement : MonoBehaviour
             movimento.x = Input.GetAxisRaw("Horizontal");
             movimento.y = Input.GetAxisRaw("Vertical");
             movimento = Vector3.ClampMagnitude(movimento, 1);
+            
             animator.SetInteger("state", 0);
-
+            if (movimento.x !=0 || movimento.y != 0)
+            {
+                if (sound_hasnt_started)
+                {
+                    source.Play();
+                    sound_hasnt_started = false;
+                }
+                else
+                {
+                    source.UnPause();
+                }
+            
+            }
+            else
+            {
+                source.Pause();
+                
+            }
             if (Input.GetKey(KeyCode.LeftShift) && stamina > 0f && !tarrafal)
             // Pode correr se tiver stamina e não estiver tarrafalizado.
             {

@@ -49,7 +49,6 @@ public class Health : MonoBehaviour
             transition_scene_waiting_time += clip.clip.length;         
         }
 
-        Debug.Log("WAITING TIME: " + transition_scene_waiting_time);
         s.source.Play();
         StartCoroutine(DelayedLoad(transition_scene_waiting_time));
 
