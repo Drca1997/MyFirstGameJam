@@ -8,9 +8,11 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused;
 
     public GameObject pauseMenuUI;
+    private GameObject player;
 
     private void Awake()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         GameIsPaused = false;
         Time.timeScale = 1f;
     }
@@ -29,6 +31,7 @@ public class PauseMenu : MonoBehaviour
                 else
                 {
                     Pause();
+                    player.GetComponent<AudioSource>().Stop();
                 }
             }
         }
