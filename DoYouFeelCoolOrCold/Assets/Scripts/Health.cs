@@ -37,6 +37,7 @@ public class Health : MonoBehaviour
     {
         
         float transition_scene_waiting_time = 0f;
+        Player.GetComponent<AudioSource>().Stop();
         Player.GetComponent<PlayerMovement>().velocidade = 0f;
         //Lidar com a morte da personagem
         animator.SetBool("is_dead", true);
@@ -48,7 +49,7 @@ public class Health : MonoBehaviour
             
             transition_scene_waiting_time += clip.clip.length;         
         }
-
+       
         s.source.Play();
         StartCoroutine(DelayedLoad(transition_scene_waiting_time));
 
