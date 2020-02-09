@@ -11,7 +11,7 @@ public class Help : MonoBehaviour
 
     private void Awake()
     {
-        helpTexts = new string[] { "The sand is hot! Walk in the shadows to keep cold!\n Run pressing shift and the direction key.",
+        helpTexts = new string[] { "The sand is hot! Walk in the shadows to keep cold!\n Run pressing shift and the direction key.\nWhen your stamina bar empties, you can only walk.",
                                    "Careful with walking big distances\n some paths lead nowhere!\nAnd what's with all these beach windbreakers and towels? Can't step on them.",
                                    "See? Nowhere! :(",
                                    "Sometimes, you'll have to get a cooling boost with a drink to be able to get to the next shadow.\nBe sure not to miss it or it could be really bad!",
