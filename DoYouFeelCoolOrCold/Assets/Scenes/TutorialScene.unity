@@ -10776,6 +10776,11 @@ PrefabInstance:
       propertyPath: camara
       value: 
       objectReference: {fileID: 1539642397}
+    - target: {fileID: 7547711980806094309, guid: da57fe9f0ec2352448854de21dc85399,
+        type: 3}
+      propertyPath: healthGainRatio
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da57fe9f0ec2352448854de21dc85399, type: 3}
 --- !u!1 &1219542491
